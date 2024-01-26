@@ -3,70 +3,180 @@
 @tailwind utilities;
 
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+  --text-primary: #b6b6b6;
+  --text-secondary: #ececec;
+  --bg-primary: #23232e;
+  --bg-secondary: #141418;
+  --transition-speed: 600ms;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+
+body::-webkit-scrollbar {
+  width: 0.25rem;
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+body::-webkit-scrollbar-track {
+  background: #1e1e24;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+body::-webkit-scrollbar-thumb {
+  background: #6649b8;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+
+
+.test{
+  transition: width 600ms ease;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+.logo {
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: var(--text-secondary);
+  background: var(--bg-secondary);
+  font-size: 1.5rem;
+  letter-spacing: 0.3ch;
+  width: 100%;
+}
+
+.logo svg {
+  transform: rotate(0deg);
+  transition: var(--transition-speed);
+}
+
+.logo-text
+{
+  display: inline;
+  position: absolute;
+  left: -999px;
+  transition: var(--transition-speed);
+}
+
+.items > a {
+  display: flex
+}
+
+.link-text{
+  @apply hidden ml-[1rem] text-center text-2xl font-extrabold tracking-tight flex justify-center pl-6
+}
+.navbar {
+  @apply fixed bg-[var(--bg-primary)] border-solid border-r h-full;
+}
+.navbar-nav {
+  @apply list-none p-0 m-0 flex flex-col items-center h-full;
+}
+
+.items{
+  @apply flex-row justify-center md:justify-normal hover:grayscale-0 hover:opacity-100 hover:bg-[var(--bg-secondary)] hover:text-[var(--text-secondary)] transition-[var(--transition-speed)] w-full  flex items-center h-20 text-[var(--text-primary)] no-underline filter grayscale opacity-70
+}
+
+.navbar:hover .logo svg {
+  @apply rotate-180;
+}
+
+.fa-primary {
+  @apply text-[#ff7eee];
+}
+
+.fa-secondary {
+  @apply text-[#df49a6];
+}
+
+.fa-primary,
+.fa-secondary {
+  @apply transition-[var(--transition-speed)];
+}
+
+
+/* Custom styles for small screens */
+@media (max-width: 600px) {
+  .navbar {
+    @apply fixed bottom-0 w-screen h-20;
   }
-  a:hover {
-    color: #747bff;
+
+  .logo {
+    @apply hidden;
   }
-  button {
-    background-color: #f9f9f9;
+
+  .navbar-nav {
+    @apply flex-row;
   }
+
+  .nav-link {
+    @apply justify-center;
+  }
+
+  main {
+    @apply m-0;
+  }
+}
+
+/* Custom styles for large screens */
+@media (min-width: 600px) {
+  .navbar {
+    @apply fixed top-0 w-20 h-screen;
+  }
+
+  .navbar:hover {
+    width: 16rem; /* Custom width not covered by Tailwind */
+  }
+
+  .navbar-nav .link-text {
+    display: inline; /* Keep it inline */
+    opacity: 0; /* Start invisible */
+    transform: translateX(-10px); /* Start slightly to the side */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition */
+  }
+
+  .navbar:hover .link-text {
+    opacity: 1; /* Fully visible on hover */
+    transform: translateX(0); /* Move to original position */
+  }
+
+  .navbar:hover .logo svg {
+    margin-left: 11rem; /* Custom margin */
+  }
+
+  .navbar:hover .logo-text {
+    left: 0; /* Custom position */
+  }
+}
+
+
+
+
+/* Custom Properties for Themes */
+.dark {
+  --text-primary: #b6b6b6;
+  --text-secondary: #ececec;
+  --bg-primary: #23232e;
+  --bg-secondary: #141418;
+}
+
+.light {
+  --text-primary: #1f1f1f;
+  --text-secondary: #000000;
+  --bg-primary: #ffffff;
+  --bg-secondary: #e4e4e4;
+}
+
+.solar {
+  --text-primary: #576e75;
+  --text-secondary: #35535c;
+  --bg-primary: #fdf6e3;
+  --bg-secondary: #f5e5b8;
+}
+
+/* Display Rules for Icons */
+/* .theme-icon {
+  @apply hidden;
+} */
+
+.dark #darkIcon,
+.light #lightIcon,
+.solar #solarIcon {
+  @apply block;
 }
