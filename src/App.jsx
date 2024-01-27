@@ -1,13 +1,18 @@
+import BlogList from './components/BlogList/BlogList'
 import Navbar from './components/Navbar/Navbar'
+import posts from './data/posts'
 
 function App() {
 
   return (
     <>
-     <Navbar/>
-     <div className='ml-[5rem] p-[1rem]'> </div>
+    <Navbar/>
+    <BlogList posts={posts}/>
     </>
   )
 }
 
 export default App
+
+
+

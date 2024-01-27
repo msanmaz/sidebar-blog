@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap');
 
 :root {
   font-size: 16px;
@@ -63,7 +64,7 @@ body::-webkit-scrollbar-thumb {
   @apply hidden ml-[1rem] text-center text-2xl font-extrabold tracking-tight flex justify-center pl-6
 }
 .navbar {
-  @apply fixed bg-[var(--bg-primary)] border-solid border-r h-full;
+  @apply fixed bg-[var(--bg-primary)] h-full;
 }
 .navbar-nav {
   @apply list-none p-0 m-0 flex flex-col items-center h-full;
@@ -92,7 +93,7 @@ body::-webkit-scrollbar-thumb {
 
 
 /* Custom styles for small screens */
-@media (max-width: 600px) {
+@media (max-width: 800px) {
   .navbar {
     @apply fixed bottom-0 w-screen h-20;
   }
@@ -115,13 +116,13 @@ body::-webkit-scrollbar-thumb {
 }
 
 /* Custom styles for large screens */
-@media (min-width: 600px) {
+@media (min-width: 800px) {
   .navbar {
     @apply fixed top-0 w-20 h-screen;
   }
 
   .navbar:hover {
-    width: 16rem; /* Custom width not covered by Tailwind */
+    width: 16rem; 
   }
 
   .navbar-nav .link-text {
