@@ -14,7 +14,11 @@ Sidebar Blog is a sleek and modern blog interface designed with a focus on provi
 
  ## Demo Video
 
-Check out the demo video [here](./assets/screen-recording.mov).
+## Demo
+
+Here's a demo of the sidebar transition in action:
+
+![Sidebar Transition Demo](https://github.com/msanmaz/sidebar-blog/blob/main/assets/displayofwork.gif?raw=true)
 
 ## Installation
 
