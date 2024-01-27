@@ -12,6 +12,10 @@ Sidebar Blog is a sleek and modern blog interface designed with a focus on provi
 - Styled with Tailwind CSS for a modern and customizable design that is both responsive and aesthetically pleasing.
 - Follows best coding practices to ensure readability, maintainability, and performance.
 
+ ## Demo Video
+
+Check out the demo video [here](./assets/screen-recording.mov).
+
 ## Installation
 
 To get started with Sidebar Blog on your local environment, follow these steps:
